@@ -1,0 +1,14 @@
+from sys import stdin
+sales = {}
+for line in stdin.readlines():
+    person, product, amount = line.split()
+    amount = int(amount)
+    if sales.get(person) == None:
+        sales[person] = {}
+    sales[person][product] = sales[person].get(product,0) + amount
+sales = [(s, sorted([(j, sales[s][j]) for j in sales[s]])) for s in sales]
+for person in sorted(sales):
+    name, products = person[0], person[1]
+    print(name, end=":\n")
+    for p in products:
+        print(*p)
