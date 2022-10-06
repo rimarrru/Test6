@@ -1,0 +1,8 @@
+w = ['a', 'b', 'c', 'b', 'd', 'c']
+words = {}
+for ws in w:
+    if ws not in words:
+        words[ws] = 1
+    else:
+        words[ws] += 1
+print (words)
